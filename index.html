@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="frontend/funcs.js"></script>
+    <script src="frontend/table.js"></script>
+    <script>
+        let table;
+
+        function funcBefore () {}
+        function funcSuccess(result) {
+            const res = JSON.parse(result);
+            const data = [];
+            for (let id in res) {
+                data.push(res[id]);
+            }
+            table = new Table();
+            table.addData(data);
+            table.createInfo();
+            table.render();
+        }
+        
+        $(document).ready(function () {
+            $.ajax({
+                url: "backend/server.php",
+                type: "POST",
+                //data: {name: "Vs"},
+                dataType: "html",
+                beforeSend: funcBefore,
+                success: funcSuccess
+            });
+        });
+
+        function clicked() {
+            const educ = document.getElementsByName('educ');
+            const cts = document.getElementsByName('city');
+            const educID = parseInt(checkElem(educ)[0]);
+            const cities = checkElem(cts);
+            table.filterEduc(educID);
+            table.filterCity(cities);
+            table.render();
+        }
+    </script>
+</head>
+<body>
+    <div id="filter">
+    <form action="#" name="education" id="education">
+        <b>Образование:</b><br>
+        <input type="radio" name="educ" value="1" onclick="clicked()">Среднее<br>
+        <input type="radio" name="educ" value="2" onclick="clicked()">Высшее<br>
+        <input type="radio" name="educ" value="3" onclick="clicked()">Бакалавр<br>
+        <input type="radio" name="educ" value="4" onclick="clicked()">Магистр<br>
+        <input type="radio" name="educ" value="0" onclick="clicked()">Не важно<br>
+    </form>
+    <form action="#" name="cities" id="cities">
+        <b>Города:</b><br>
+        <input type="checkbox" name="city" value="1" onclick="clicked()">Санкт-Петербург<br>
+        <input type="checkbox" name="city" value="2" onclick="clicked()">Москва<br>
+        <input type="checkbox" name="city" value="3" onclick="clicked()">Великий Новгород<br>
+        <input type="checkbox" name="city" value="4" onclick="clicked()">Рязань<br>
+        <input type="checkbox" name="city" value="5" onclick="clicked()">Владивосток<br>
+        <input type="checkbox" name="city" value="6" onclick="clicked()">Вологда<br>
+        <input type="checkbox" name="city" value="7" onclick="clicked()">Ярославль<br>
+        <input type="checkbox" name="city" value="8" onclick="clicked()">Казань<br>
+    </form>
+    </div>
+</body>
+</html>

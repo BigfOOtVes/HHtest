@@ -1,0 +1,35 @@
+* {
+	margin: 10px;
+}
+
+table {
+	background: #C1C1C1;
+}
+
+td {
+	background: #EAEAEA;
+	text-align: center;
+}
+
+td, th {
+	padding: 10px;
+}
+
+#education {
+	border: 1px solid black;
+	display: inline-block;
+	background: #EAEAEA;
+}
+
+#filter {
+	border: 1px solid black;
+	display: inline-block;
+	background: #C1C1C1;
+}
+
+#cities {
+	border: 1px solid black;
+	display: inline-block;
+	background: #EAEAEA;
+}
+
