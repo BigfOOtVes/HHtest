@@ -1,6 +1,6 @@
 <?php
 require_once "ConnectDB.php";
-
+//-----[модель для соединения с базой данных]
 abstract class AbstModel {
     
         protected static $table;

@@ -7,11 +7,11 @@ class Table {
                       </table>`);
         $("body").append(this.head);
     }
-
+    //-----[сохраняем данные с сервера]
     addData(data) {
         this.data = data;
     }
-    //---[]
+    //-----[создаем элементы таблицы]
     createInfo(td = this.data) {
         $(this.info).remove();
         let str = ``;
@@ -22,9 +22,11 @@ class Table {
         </tr>`);
         return this.info = $(str);
     }
+    //-----[соединяем элементы с таблицей]
     render() {
         $(this.head).append(this.info);
     }
+    //-----[фильтруем элементы таблыци по образованию]
     filterEduc(id) {
         $(this.info).remove();
         if (!id) { this.preInfo = this.data; return this.createInfo(); }
@@ -33,6 +35,7 @@ class Table {
         this.preInfo = result;
         return this.createInfo(result);
     }
+    //-----[фильтруем элементы таблицы по городам]
     filterCity(cities, dt = this.preInfo) {
         if (cities.length === 0) { return false; }
         this.info.remove();

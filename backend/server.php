@@ -2,7 +2,7 @@
 require_once __DIR__ . "/Classes.php";
 require_once __DIR__ . "/funcs.php";
 
-
+//-----[создаем объекты и получем данные]
 $getUsers = new Users();
 $users = $getUsers->selectAll();
 
@@ -15,6 +15,7 @@ $education = $getEducation->selectAll();
 $getCityOfUsers = new CityOfUsers();
 $cityOfUsers = $getCityOfUsers->selectAll();
 
+//-----[при обращении передаем данные в формате JSON]
 $resArr = [];
 
 for ($i = 0; $i < count($users); $i ++) {

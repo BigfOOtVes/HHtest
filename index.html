@@ -11,7 +11,7 @@
     <script src="frontend/table.js"></script>
     <script>
         let table;
-
+        //-----[функции для запроса данных]
         function funcBefore () {}
         function funcSuccess(result) {
             const res = JSON.parse(result);
@@ -24,7 +24,7 @@
             table.createInfo();
             table.render();
         }
-        
+        //-----[запрашиваем у сервера данные]
         $(document).ready(function () {
             $.ajax({
                 url: "backend/server.php",
@@ -35,7 +35,7 @@
                 success: funcSuccess
             });
         });
-
+        //-----[клик по форме]
         function clicked() {
             const educ = document.getElementsByName('educ');
             const cts = document.getElementsByName('city');

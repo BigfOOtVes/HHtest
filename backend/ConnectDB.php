@@ -1,5 +1,5 @@
 <?php
-
+//-----[запрашиваем данные из быцы данных]
 class ConnectDB {
     
         private $dbh;

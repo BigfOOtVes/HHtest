@@ -1,5 +1,5 @@
 <?php
-
+//-----[получаем имя юзера]
 function getName ($userID, $arrUsers) {
     for ($i = 0; $i < count($arrUsers); $i ++) {
         if ($arrUsers[$i]->id === $userID) 
@@ -7,7 +7,7 @@ function getName ($userID, $arrUsers) {
     }
     return "ERROR";
 }
-
+//-----[получаем город юзера]
 function getCity ($cityID, $arrCities) {
     $arr = explode(',', $cityID);
     
@@ -28,7 +28,7 @@ function getCity ($cityID, $arrCities) {
     }
     return "ERROR";
 }
-
+//-----[получаем образование юзера]
 function getEduc ($userID, $arrUsers, $arrEduc) {
     for ($i1 = 0; $i1 < count($arrUsers); $i1 ++) {
         if ($arrUsers[$i1]->id === $userID) {
@@ -40,7 +40,7 @@ function getEduc ($userID, $arrUsers, $arrEduc) {
     }
     return "ERROR";
 }
-
+//-----[получаем ID образования юзера]
 function getEducId ($userID, $arrUsers) {
     for ($i1 = 0; $i1 < count($arrUsers); $i1 ++) {
         if ($arrUsers[$i1]->id === $userID) 
